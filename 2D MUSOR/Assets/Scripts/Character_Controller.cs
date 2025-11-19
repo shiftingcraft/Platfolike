@@ -101,6 +101,7 @@ public class Character_Controller : MonoBehaviour
         }
 
         _animator.SetBool("IsRunning", _moveInput.x != 0);
+        _animator.SetFloat("YVelocity", _rb.linearVelocityY);
 
 
         if (_moveInput.x > 0)
@@ -145,6 +146,6 @@ public class Character_Controller : MonoBehaviour
     {
         _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, 0f);
         _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
-        _animator.SetBool("IsJumping", _moveInput.y != 0);
+
     }
 }
