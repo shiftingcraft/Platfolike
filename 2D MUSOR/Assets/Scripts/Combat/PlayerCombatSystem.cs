@@ -14,7 +14,7 @@ public class PlayerCombatSystem : MonoBehaviour, IDamagable
         _hp = MaxHealth;
     }
 
-    public void Attack(int dmg)
+    public void Attack(IDamagable target, int dmg)
     {
         throw new System.NotImplementedException();
     }
