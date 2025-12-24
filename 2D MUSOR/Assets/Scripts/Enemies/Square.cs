@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class Square : Enemy
 {
+    [SerializeField] private EnemyData _enemyData;
+
     public override int MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
-    public override int Damage { get => _dmg; set => _dmg = value; }
+    public override int Damage { get => _enemyData.Dmg; set => _dmg = value; }
 
 
     public override void Attack(IDamagable target, int dmg)

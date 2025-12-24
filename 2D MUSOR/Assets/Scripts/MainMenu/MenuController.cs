@@ -13,5 +13,4 @@ public class MenuController : MonoBehaviour
         Debug.Log("See You Next Time");
         Application.Quit();
     }
-    public void
 }
