@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Animator))]
 public class Character_Controller : MonoBehaviour
 {
+    [SerializeField] private float scale_x = 4.339475f;
+    [SerializeField] private float scale_y = 5.216864f;
     [Header("Movement")]
     [SerializeField] private float _moveSpeed = 2f;
     [SerializeField] private float _attackDelay = 0.25f;
@@ -139,19 +141,22 @@ public class Character_Controller : MonoBehaviour
             _isFacingRight = true;
         else if (_moveInput.x < 0)
             _isFacingRight = false;
+        if (_isFacingRight)
+            transform.localScale = new Vector3(scale_x, scale_y, 1);
+        else
+            transform.localScale = new Vector3(-scale_x, scale_y, 1);
 
-        _spriteRenderer.flipX = !_isFacingRight;
-            /*        if (_moveInput != Vector2.zero)
-                    {
-                        _animator.SetBool("IsRunning", true);
-                    }
-                    else
-                    {
-                        _animator.SetBool("IsRunning", false);
-                    }
-            */
+        /*        if (_moveInput != Vector2.zero)
+                {
+                    _animator.SetBool("IsRunning", true);
+                }
+                else
+                {
+                    _animator.SetBool("IsRunning", false);
+                }
+        */
 
-            Debug.Log(_moveInput);
+        Debug.Log(_moveInput);
     }
     private void FixedUpdate()
     {
